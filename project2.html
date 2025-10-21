@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSDI 2025 Paper Contribution</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #0d1117;
+            color: #c9d1d9;
+        }
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            background: #161b22;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #58a6ff;
+        }
+        .highlight {
+            color: #79c0ff;
+            font-weight: bold;
+        }
+        .section {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #21262d;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+        }
+        .contribution-list li {
+            margin: 10px 0;
+            transition: all 0.3s ease;
+        }
+        .contribution-list li:hover {
+            transform: translateX(5px);
+            color: #79c0ff;
+        }
+        .status {
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        .completed {
+            background: #198754;
+            color: white;
+        }
+        .in-progress {
+            background: #ffc107;
+            color: #000;
+        }
+        .pending {
+            background: #dc3545;
+            color: white;
+        }
+        .toggle {
+            background: #58a6ff;
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 16px;
+        }
+        .toggle:hover {
+            background: #1f6feb;
+        }
+        .hidden {
+            display: none;
+        }
+        a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>OSDI 2025 Paper Contribution</h1>
+        <p><strong>Paper Title:</strong> <em>Enabling Easy, Correct, and Reproducible Evaluation of Distributed Storage Systems With Evaluation as a Service</em></p>
+        <p><strong>Conference:</strong> OSDI 2025</p>
+        <p><strong>My Role:</strong> Worked extensively on multiple components, focusing on the <span class="highlight">Result Producer</span>, graph generation, workload execution, and performance evaluation.</p>
+
+        <div class="section">
+            <h2>Key Contributions</h2>
+            <ul class="contribution-list">
+                <li>Developed the <strong>Result Producer</strong> to automate graph generation.</li>
+                <li>Designed <strong>visualization scripts</strong> using Matplotlib and SQL queries.</li>
+                <li>Implemented <strong>colorblind-friendly</strong> graph designs for better accessibility.</li>
+                <li>Worked on <strong>Workload Execution</strong> to ensure reliable performance evaluation.</li>
+                <li>Handled <strong>experimental environment setup</strong> on distributed systems.</li>
+                <li>Assisted in optimizing <strong>storage APIs</strong> (GET, PUT, SCAN, DELETE, etc.).</li>
+                <li>Developed key insights from re-evaluating modern replication protocols.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Graph Contributions</h2>
+            <p><a href="https://drive.google.com/file/d/1-8VG2pwz7xQCYLGCLjF2DD1eXLSN1szb/view?usp=sharing" target="_blank">📄 See all the Data Visualizations</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Project Details</h2>
+            <button class="toggle" onclick="toggleDetails()">Show More Details</button>
+            <div id="details" class="hidden">
+                <p><strong>Evaluation Process:</strong> Designed systematic methods to measure latency, throughput, and performance for distributed storage systems.</p>
+                <p><strong>Tools Used:</strong> Python (Matplotlib, SQLAlchemy), C++, SQLite, Shell scripting.</p>
+                <p><strong>Challenges Overcome:</strong> Improved automation to minimize manual effort and errors, making evaluation reproducible and efficient.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Paper</h2>
+            <p><a href="osdi25-paper892.pdf" target="_blank">📄 Paper will be uploaded soon!</a></p>
+        </div>
+    </div>
+
+    <script>
+        function toggleDetails() {
+            var details = document.getElementById("details");
+            var button = document.querySelector(".toggle");
+            if (details.classList.contains("hidden")) {
+                details.classList.remove("hidden");
+                button.textContent = "Show Less";
+            } else {
+                details.classList.add("hidden");
+                button.textContent = "Show More Details";
+            }
+        }
+    </script>
+
+</body>
+</html>

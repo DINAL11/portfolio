@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning for River Forecasting</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e9ecef;
+            margin: 0;
+            padding: 20px;
+            color: #343a40;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        .container:hover {
+            transform: scale(1.02);
+        }
+        h1, h2 {
+            color: #007bff;
+        }
+        .section {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #dee2e6;
+            padding-bottom: 20px;
+        }
+        .highlight {
+            background: #007bff;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .button {
+            background: #007bff;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .button:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li::before {
+            content: "\2713"; 
+            color: #007bff;
+            font-weight: bold;
+            display: inline-block; 
+            width: 1em;
+            margin-left: -1em;
+        }
+        .accordion {
+            background-color: #f8f9fa;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+            padding: 10px;
+            text-align: left;
+            outline: none;
+            transition: background 0.3s;
+        }
+        .accordion:hover {
+            background-color: #e2e6ea;
+        }
+        .panel {
+            padding: 0 15px;
+            display: none;
+            overflow: hidden;
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌊 Machine Learning for River Forecasting (2022-2023)</h1>
+        
+        <div class="section">
+            <h2>Overview</h2>
+            <p>This project leverages Machine Learning (ML) models to predict river stage levels at Avon and Ballantyne stream gages for up to 48 hours ahead. The goal is to enhance flood risk assessment using real-time data and AI techniques.</p>
+        </div>
+        
+        <div class="section">
+            <h2>🎯 Project Goals</h2>
+            <ul>
+                <li>Forecast river stages in the Genesee River Basin.</li>
+                <li>Improve peak flow prediction for better flood management.</li>
+                <li>Enable real-time forecasting with dynamic user inputs.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>📂 Data Sources</h2>
+            <ul>
+                <li>Flow & stage time series from .dss files.</li>
+                <li>USGS streamgage data for Avon & Ballantyne.</li>
+                <li>Precipitation forecasts from online sources.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🤖 Machine Learning Model</h2>
+            <ul>
+                <li>Developed using Long Short-Term Memory (LSTM) networks.</li>
+                <li>Compared with Random Forest as an alternative approach.</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>🛠 Software & Tools Used</h2>
+            <h3>Programming & Libraries</h3>
+            <ul>
+                <li>Python – Core language for ML model development.</li>
+                <li>TensorFlow & Keras – Deep learning frameworks.</li>
+                <li>NumPy & Pandas – Data handling and preprocessing.</li>
+            </ul>
+            <h3>Data Sources & Visualization</h3>
+            <ul>
+                <li>HEC-DSSVue – Hydrologic database for time-series analysis.</li>
+                <li>Matplotlib & Seaborn – Data visualization.</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>🌐 Online Resources</h2>
+            <p>
+                <a class="button" href="https://waterdata.usgs.gov/monitoring-location/04230650/#dataTypeId=continuous-00065-0&period=P7D&showMedian=false">USGS Streamgage Data: Ballantyne</a>
+                <a class="button" href="https://water.noaa.gov/gauges/avon6">USGS Streamgage Data: Avon</a>
+                <a class="button" href="https://www.hec.usace.army.mil/software/hec-dssvue/default.aspx">HEC-DSSVue Software & Docs</a>
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>📄 Project Files</h2>
+            <ul>
+                <li><strong>FlowPrediction.txt</strong> – Model configuration & results.</li>
+                <p><a class="button" href="FlowPrediction.txt">View File</a></p>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>📽 Presentation</h2>
+            <p><a class="button" href="https://docs.google.com/presentation/d/1JNQ4Mwzxzgd_2xqIiGuecXyoxy4_GTv3VXEc3gOxG8k/edit?usp=sharing">View Presentation</a></p>
+        </div>
+
+        <div class="section">
+            <h2>📊 Visuals & Data Insights</h2>
+            <ul>
+                <li>🗺️ <strong>Figure 1:</strong> Watershed Map – Streamgage locations in the Genesee River Basin.</li>
+                <p><a class="button" href="Picture1.png">View Figure</a></p>
+                <li>📋 <strong>Figure 2:</strong> Data Table – Streamgages in the Genesee River Basin.</li>
+                <li>Bolded locations are used for regulation of the Mount Morris Dam and Reservoir; additional information can be found in the LRB Gauge Verification Plan for the Mount Morris Dam Flood Control Project on the Genesee River 20 October 2019. S = Stage, P = Precipitation, V = Velocity</li>
+                <p><a class="button" href="Book1.pdf">View Data in pdf format</a></p>
+                <p><a class="button" href="Book1.csv">View Data in csv format</a></p>
+                <li>📋 <strong>Figure 3:</strong> Data Table – Flood Stages for the Genesee Basin Gages.</li>
+                <li>Stages are in feet above gage datum.</li>
+                <p><a class="button" href="Book2.pdf">View Data in pdf format</a></p>
+                <p><a class="button" href="Book2.csv">View Data in csv format</a></p>
+            </ul>
+        </div>
+
+        
+    </div>
+
+    <script>
+        const acc = document.getElementsByClassName("accordion");
+        for (let i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                const panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>
+</body>
+</html>

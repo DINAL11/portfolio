@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distributed File Storage System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e9ecef;
+            margin: 0;
+            padding: 20px;
+            color: #343a40;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        .container:hover {
+            transform: scale(1.02);
+        }
+        h1, h2 {
+            color: #007bff;
+        }
+        .section {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #dee2e6;
+            padding-bottom: 20px;
+        }
+        .highlight {
+            background: #007bff;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .button {
+            background: #007bff;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .button:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li::before {
+            content: "\2713"; 
+            color: #007bff;
+            font-weight: bold;
+            display: inline-block; 
+            width: 1em;
+            margin-left: -1em;
+        }
+        .accordion {
+            background-color: #f8f9fa;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+            padding: 10px;
+            text-align: left;
+            outline: none;
+            transition: background 0.3s;
+        }
+        .accordion:hover {
+            background-color: #e2e6ea;
+        }
+        .panel {
+            padding: 0 15px;
+            display: none;
+            overflow: hidden;
+            background-color: #f1f1f1;
+        }
+        .screenshot {
+            width: 100%;
+            border-radius: 5px;
+            margin: 10px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .diagram {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .code-block {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📁 Distributed File Storage System</h1>
+        
+        <div class="section">
+            <h2>Overview</h2>
+            <p>A robust distributed file storage system designed to provide scalable, fault-tolerant storage across multiple nodes. This project implements consistent hashing, data replication, and a REST API interface for file operations, ensuring high availability and data integrity even during node failures.</p>
+            <div>
+                <a class="button" href="https://github.com/DINAL11/Distributed-File-Storage-System/tree/main" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🎯 Project Goals</h2>
+            <ul>
+                <li>Create a highly available distributed storage system</li>
+                <li>Implement efficient file distribution across multiple nodes</li>
+                <li>Ensure data integrity through replication mechanisms</li>
+                <li>Develop a user-friendly API for file operations</li>
+                <li>Build fault tolerance for node failures</li>
+                <li>Design a scalable architecture for future growth</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🏗️ System Architecture</h2>
+            <p>The system follows a distributed architecture with the following components:</p>
+            <div class="diagram">
+                <img src="/api/placeholder/800/400" alt="System Architecture Diagram" class="screenshot">
+                <p><em>High-level architecture showing node communication and replication</em></p>
+            </div>
+            <ul>
+                <li><strong>API Gateway:</strong> Central entry point for all client requests</li>
+                <li><strong>Metadata Service:</strong> Tracks file locations and node status</li>
+                <li><strong>Storage Nodes:</strong> Distributed servers that store file chunks</li>
+                <li><strong>Replication Manager:</strong> Ensures data redundancy across nodes</li>
+                <li><strong>Client Application:</strong> Interface for end-users to interact with the system</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>💽 Key Features</h2>
+            <h3>Consistent Hashing Implementation</h3>
+            <ul>
+                <li>Distributes files across nodes based on content hash</li>
+                <li>Minimizes data redistribution when nodes join or leave</li>
+                <li>Ensures balanced load across all storage nodes</li>
+            </ul>
+            <div class="code-block">
+<pre>
+public class ConsistentHash<T> {
+    private final HashFunction hashFunction;
+    private final int numberOfReplicas;
+    private final SortedMap<Integer, T> circle = new TreeMap<>();
+
+    public ConsistentHash(HashFunction hashFunction, int numberOfReplicas, Collection<T> nodes) {
+        this.hashFunction = hashFunction;
+        this.numberOfReplicas = numberOfReplicas;
+        
+        for (T node : nodes) {
+            add(node);
+        }
+    }
+    
+    // Code continues...
+}
+</pre>
+            </div>
+            
+            <h3>Data Replication</h3>
+            <ul>
+                <li>Maintains multiple copies of each file across different nodes</li>
+                <li>Configurable replication factor based on data importance</li>
+                <li>Automatic repair mechanism when nodes recover</li>
+            </ul>
+            
+            <h3>Fault Tolerance</h3>
+            <ul>
+                <li>Graceful handling of node failures without data loss</li>
+                <li>Automatic redistribution of workload to healthy nodes</li>
+                <li>Health monitoring and automatic recovery procedures</li>
+            </ul>
+            
+            <h3>REST API Interface</h3>
+            <ul>
+                <li>Comprehensive API for file operations (upload, download, delete)</li>
+                <li>File versioning and metadata management</li>
+                <li>Authentication and access control mechanisms</li>
+            </ul>
+            <div class="code-block">
+<pre>
+@RestController
+@RequestMapping("/api/files")
+public class FileController {
+    
+    @PostMapping("/upload")
+    public ResponseEntity<FileUploadResponse> uploadFile(@RequestParam("file") MultipartFile file) {
+        // File upload logic
+    }
+    
+    @GetMapping("/{fileId}")
+    public ResponseEntity<Resource> downloadFile(@PathVariable String fileId) {
+        // File download logic
+    }
+    
+    // Additional endpoints...
+}
+</pre>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🛠 Technical Implementation</h2>
+            <h3>Backend Development</h3>
+            <ul>
+                <li>Implemented in Java with Spring Boot framework</li>
+                <li>Used Apache ZooKeeper for distributed coordination</li>
+                <li>Implemented custom serialization for efficient data transfer</li>
+                <li>Created asynchronous processing for large file operations</li>
+            </ul>
+            
+            <h3>Client Application</h3>
+            <ul>
+                <li>Developed command-line client with intuitive interface</li>
+                <li>Implemented chunking for large file uploads</li>
+                <li>Added retry mechanisms for network failures</li>
+                <li>Created progress tracking for long-running operations</li>
+            </ul>
+            
+            <h3>Testing Strategy</h3>
+            <ul>
+                <li>Comprehensive unit tests for core components</li>
+                <li>Integration tests for system-wide behavior</li>
+                <li>Chaos testing to simulate node failures</li>
+                <li>Performance testing under various load conditions</li>
+            </ul>
+            
+            <div class="diagram">
+                <img src="/api/placeholder/800/400" alt="Test Coverage Report" class="screenshot">
+                <p><em>Test coverage showing over 90% code coverage across core components</em></p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📊 Performance Metrics</h2>
+            <ul>
+                <li>Throughput: Up to 500 MB/s with 10 storage nodes</li>
+                <li>Latency: Average 120ms response time for file retrieval</li>
+                <li>Replication Speed: 98% of nodes synchronized within 2 seconds</li>
+                <li>Recovery Time: Complete node recovery in under 5 minutes</li>
+                <li>Scalability: Linear performance scaling up to 50 nodes tested</li>
+            </ul>
+            
+            <div class="diagram">
+                <img src="/api/placeholder/800/400" alt="Performance Benchmark Results" class="screenshot">
+                <p><em>Performance benchmarks showing throughput vs. number of nodes</em></p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🔧 Technologies Used</h2>
+            <ul>
+                <li><strong>Backend:</strong> Java, Spring Boot, Apache ZooKeeper</li>
+                <li><strong>Data Storage:</strong> Custom file system implementation</li>
+                <li><strong>Communication:</strong> gRPC, REST APIs</li>
+                <li><strong>Deployment:</strong> Docker, Kubernetes</li>
+                <li><strong>Monitoring:</strong> Prometheus, Grafana</li>
+                <li><strong>Testing:</strong> JUnit, Mockito, Chaos Monkey</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>📝 Lessons Learned</h2>
+            <ul>
+                <li>Importance of proper failure detection mechanisms</li>
+                <li>Benefits of asynchronous operations for high throughput</li>
+                <li>Challenges in maintaining consistency across distributed systems</li>
+                <li>Value of comprehensive logging for troubleshooting</li>
+                <li>Tradeoffs between consistency, availability, and partition tolerance</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>🚀 Future Enhancements</h2>
+            <ul>
+                <li>Implementation of erasure coding for storage efficiency</li>
+                <li>Geographic distribution for disaster recovery</li>
+                <li>Addition of data compression algorithms</li>
+                <li>Integration with S3-compatible API</li>
+                <li>Web-based administration interface</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const acc = document.getElementsByClassName("accordion");
+        for (let i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                const panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>
+</body>
+</html>

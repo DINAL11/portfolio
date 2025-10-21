@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scalable Graph Generation Tool</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 20px;
+            color: #212529;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .container:hover {
+            transform: scale(1.01);
+        }
+        h1, h2 {
+            color: #17a2b8;
+        }
+        .section {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #dee2e6;
+            padding-bottom: 20px;
+        }
+        .button {
+            background: #17a2b8;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+        .button:hover {
+            background: #117a8b;
+        }
+        .code-block {
+            background: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            overflow-x: auto;
+            margin-top: 10px;
+        }
+        .screenshot {
+            width: 100%;
+            border-radius: 5px;
+            margin: 10px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📈 Scalable Graph Generation Tool</h1>
+
+        <div class="section">
+            <h2>Overview</h2>
+            <p>An automated graph generation system built to visualize performance metrics from database experiments. It integrates SQLite for data handling and Matplotlib for customizable and print-friendly plots based on configuration files.</p>
+            <a class="button" href="https://github.com/DINAL11/Graph-Generation-Tool" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
+        </div>
+
+        <div class="section">
+            <h2>🔧 Features</h2>
+            <ul>
+                <li>Reads configurations from a JSON file</li>
+                <li>Generates line and bar charts from SQLite database</li>
+                <li>Supports black-and-white and colorblind-friendly styling</li>
+                <li>Aligns x-axis with bars precisely for comparison</li>
+                <li>Minimalistic design (no grid lines, only x and y axis)</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>📂 Project Structure</h2>
+            <ul>
+                <li><code>graph_generator.py</code>: Python script for generating graphs</li>
+                <li><code>default_graphs.json</code>: Configuration for plot types, axis labels</li>
+                <li><code>experiment_results.db</code>: SQLite database with performance data</li>
+                <li><code>experiment_test.cpp</code>: C++ file generating test data</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🧠 Example Code Snippet</h2>
+            <div class="code-block">
+<pre>
+import sqlite3
+import matplotlib.pyplot as plt
+
+conn = sqlite3.connect('experiment_results.db')
+cursor = conn.cursor()
+cursor.execute("SELECT exp_conf, throughput FROM experiment_results")
+data = cursor.fetchall()
+
+x, y = zip(*data)
+plt.bar(x, y, color='gray')
+plt.xlabel('Configuration')
+plt.ylabel('Throughput')
+plt.axhline(0, color='black')
+plt.show()
+</pre>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📊 Output Example</h2>
+            <img src="/api/placeholder/800/400" alt="Sample Graph Output" class="screenshot">
+            <p><em>Sample bar chart showing throughput variation by configuration</em></p>
+        </div>
+
+        <div class="section">
+            <h2>🚀 Future Enhancements</h2>
+            <ul>
+                <li>Add scatter plot support for larger datasets</li>
+                <li>Embed LaTeX labels for academic publishing</li>
+                <li>Introduce CLI for batch graph generation</li>
+                <li>Export graphs in SVG/PDF for presentations</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

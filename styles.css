@@ -1,0 +1,791 @@
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #111;
+    padding: 15px 30px;
+    color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #f7b42c;
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #f7b42c;
+    transform: scale(1.1);
+}
+
+/* Hero Section */
+#hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('bg.png') no-repeat center center/cover;
+    z-index: -1;
+    filter: brightness(50%); /* Adjust brightness for readability */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Glitch Effect */
+.glitch {
+    color: white;
+    font-size: 3em;
+    position: relative;
+    animation: glitch 1.5s infinite;
+}
+
+@keyframes glitch {
+    0% { text-shadow: 2px 2px #f7b42c; }
+    50% { text-shadow: -2px -2px #ff0080; }
+    100% { text-shadow: 2px 2px #f7b42c; }
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-decoration: none;
+    background: #f7b42c;
+    color: black;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #ff0080;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Pulse Button Effect */
+.pulse {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Neon Glow Effect */
+.neon {
+    background: #ff0080;
+    color: white;
+    box-shadow: 0 0 15px #ff0080;
+}
+
+.neon:hover {
+    box-shadow: 0 0 20px #f7b42c, 0 0 30px #ff0080;
+}
+
+/* About Section */
+#about {
+    padding: 60px;
+    text-align: center;
+    background: #111;
+    color: white;
+}
+
+#about p {
+    font-size: 1.2em;
+    max-width: 700px;
+    margin: auto;
+}
+
+#about img {
+    width: 200px;
+    border-radius: 50%;
+    margin-top: 20px;
+}
+
+/* Tilt Effect */
+.tilt {
+    transition: transform 0.2s;
+}
+
+.tilt:hover {
+    transform: rotate(-3deg) scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Skills Section */
+.animated-section {
+    padding: 20px;
+    text-align: center;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    max-width: 900px; /* Ensures a more structured width */
+    margin: 0 auto; /* Centers the grid */
+}
+
+.skill-category {
+    grid-column: 1 / -1; /* Ensures it spans the full row */
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #ff6b6b;
+    margin-top: 15px;
+    border-bottom: 2px solid #ff6b6b;
+    padding-bottom: 5px;
+    text-align: left; /* Aligns category titles properly */
+}
+
+.skill {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: linear-gradient(135deg, #1e293b, #334155);
+    color: white;
+    font-size: 1em;
+    padding: 12px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.skill i {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.skill:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(135deg, #ff6b6b, #ffa502);
+}
+
+/* work expreince section */
+.tech-section {
+    background: #161b22;
+    color: white;
+    padding: 50px;
+    text-align: center;
+}
+
+.tech-section h2 {
+    font-size: 2em;
+    color: #58a6ff;
+    text-shadow: 0 0 10px #58a6ff;
+    margin-bottom: 30px;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.experience-card {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(88, 166, 255, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: 1px solid #58a6ff;
+}
+
+.experience-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(88, 166, 255, 0.5);
+}
+
+h3 {
+    color: #58a6ff;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+p {
+    font-weight: bold;
+    color: #8b949e;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    padding-left: 20px;
+    position: relative;
+    font-size: 0.95em;
+    color: #c9d1d9;
+    margin-bottom: 8px;
+}
+
+ul li::before {
+    content: "⚡";
+    position: absolute;
+    left: 0;
+    color: #58a6ff;
+    font-size: 1em;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #58a6ff;
+    }
+    to {
+        text-shadow: 0 0 15px #58a6ff;
+    }
+}
+
+
+/* Projects Section */
+.projects-section {
+    text-align: center;
+    padding: 50px;
+    background: #0d1117;
+    color: #c9d1d9;
+}
+
+.projects-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.project-card {
+    width: 300px;
+    height: 300px;
+    perspective: 1000px;
+}
+
+.project-card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.project-card:hover .project-card-inner {
+    transform: rotateY(180deg);
+}
+
+.project-card-front, .project-card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+.project-card-front {
+    background: linear-gradient(135deg, #1e90ff, #00bfff);
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.6);
+}
+.project-card-front h3 {
+    color: white !important; /* Forces white text */
+}
+
+.project-card-back {
+    background: #161b22;
+    color: #58a6ff;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.project-card-back p {
+    margin: 3px 0; /* Adjust this value to reduce space */
+    font-size: 16px; /* Adjust font size if needed */
+    text-align: center;
+}
+
+.project-card-back .btn {
+    margin-top: 10px; /* Space between last skill and button */
+}
+.project-card-back ul {
+    list-style: none;
+    padding: 0;
+}
+
+.project-card-back li {
+    margin: 5px 0;
+}
+
+/* Case Studies Section */
+.interactive-section {
+    text-align: center;
+    padding: 60px 20px;
+    background: #1c1c1e; /* Dark theme background */
+    color: #fff;
+}
+
+/* Case Study Grid */
+.case-study-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Case Study Card */
+.case-study-card {
+    text-align: left;
+    max-width: 800px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.1); /* Slight transparency for a futuristic look */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 255, 255, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    backdrop-filter: blur(10px);
+}
+
+.case-study-card h3 {
+    color: #00aaff; /* Dark Blue */
+    font-size: 1.3rem; /* Slightly larger size */
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Hover Effect */
+.case-study-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 18px rgba(0, 255, 255, 0.5);
+}
+
+/* Animated Underline for the Title */
+h2 {
+    font-size: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    width: 100%;
+    height: 3px;
+    background: cyan;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s ease-in-out;
+}
+
+h2:hover::after {
+    width: 120%;
+}
+
+/* Buttons */
+.button-group {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 12px 18px;
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+    color: white;
+    border-radius: 6px;
+    transition: 0.4s;
+    font-weight: bold;
+    display: inline-block;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* Glow Effect on Hover */
+.btn:hover {
+    background: linear-gradient(45deg, #0072ff, #00c6ff);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+}
+
+/* List Styles */
+.case-study-card ul {
+    padding-left: 20px;
+}
+
+.case-study-card li {
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .case-study-card {
+        max-width: 90%;
+    }
+}
+
+/* Certifications Section */
+.certifications {
+    text-align: center;
+    padding: 40px;
+    background: #0d1117;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.certifications h2 {
+    font-size: 2.5rem;
+}
+.cert-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cert-card {
+    width: 280px;
+    background: #161b22;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.cert-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(88, 166, 255, 0.5);
+}
+
+.cert-card img {
+    width: 60px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.cert-card h3 {
+    margin: 10px 0;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.cert-card p {
+    font-size: 0.9em;
+    color: #c9d1d9;
+}
+
+.cert-card a {
+    text-decoration: none;
+    color: #58a6ff;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+    transition: color 0.3s ease-in-out;
+}
+
+.cert-card a:hover {
+    color: #f7b42c;
+}
+
+/* Leadership Section */
+#leadership {
+    padding: 80px 0;
+    text-align: center;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: cyan;
+    margin: 10px auto;
+    border-radius: 2px;
+}
+
+/* Leadership Cards */
+.leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.leadership-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0px 5px 15px rgba(0, 255, 255, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.leadership-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 20px rgba(0, 255, 255, 0.5);
+}
+
+/* Icon Styling */
+.leadership-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: cyan;
+    transition: transform 0.3s ease-in-out;
+}
+
+.leadership-card:hover .leadership-icon {
+    transform: rotate(360deg);
+}
+
+/* Text Styling */
+.leadership-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.leadership-card p {
+    font-size: 1rem;
+    opacity: 0.8;
+    line-height: 1.5;
+}
+/* Conferences Section */
+.conference {
+    text-align: center;
+    padding: 60px 20px;
+    background: #0d1117; /* Dark background */
+    color: white;
+}
+
+/* Conference Title */
+.conference h2 {
+    font-size: 2.5rem;
+    color: white; /* Gold */
+    margin-bottom: 30px;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.conference h2::before {
+    content: "📜"; /* Scroll/Conference icon */
+    font-size: 1.2em;
+}
+
+/* Conference Container */
+.conference-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Conference Cards */
+.conference-card {
+    background: #161b22; /* Darker background */
+    padding: 25px;
+    border-radius: 12px;
+    width: 350px;
+    box-shadow: 0 0 12px rgba(255, 183, 77, 0.3); /* Soft glow */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: 1px solid rgba(255, 183, 77, 0.2);
+}
+
+.conference-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 183, 77, 0.6);
+}
+
+/* Conference Titles */
+.conference-card h3 {
+    font-size: 1.6em;
+    color: #f7b42c; /* Gold */
+    margin-bottom: 12px;
+}
+
+/* Conference Text */
+.conference-card p {
+    font-size: 1em;
+    color: #ddd;
+}
+
+
+/* Papers Section */
+.papers-section {
+    text-align: center;
+    padding: 50px;
+    background: #161b22;
+    color: #c9d1d9;
+}
+
+.papers-section h2 {
+    font-size: 2.5rem;
+}
+
+.papers-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.papers-category {
+    background: #0d1117;
+    padding: 20px;
+    border-radius: 10px;
+    width: 350px;
+    box-shadow: 0 0 15px rgba(88, 166, 255, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.papers-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(88, 166, 255, 0.6);
+}
+
+.papers-category h3 {
+    color: #58a6ff;
+    margin-bottom: 15px;
+}
+
+.papers-category ul {
+    list-style: none;
+    padding: 0;
+}
+
+.papers-category li {
+    margin: 10px 0;
+}
+
+.papers-category a {
+    text-decoration: none;
+    color: #58a6ff;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease-in-out;
+}
+
+.papers-category a:hover {
+    color: #1e90ff;
+}
+
+/* Contact Section */
+#contact {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#contact form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#contact input, #contact textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#contact button {
+    padding: 10px 20px;
+    background: #f7b42c;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#contact button:hover {
+    background: #ff0080;
+    color: white;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+    color: white;
+}
